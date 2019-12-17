@@ -1,0 +1,28 @@
+﻿<Window x:Class="CSharpTechnicalTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CSharpTechnicalTest"
+        mc:Ignorable="d"
+        Title="Time Zones" Height="350" Width="700">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <local:HideableTime VerticalAlignment="Center" ZoneLabel="{Binding PST.TitleString}" DateContent="{Binding PST.ZoneTime, UpdateSourceTrigger=PropertyChanged}"></local:HideableTime>
+        <local:HideableTime Grid.Column="1" VerticalAlignment="Center" ZoneLabel="{Binding MST.TitleString}" DateContent="{Binding MST.ZoneTime, UpdateSourceTrigger=PropertyChanged}"></local:HideableTime>
+        <local:HideableTime Grid.Column="2" VerticalAlignment="Center" ZoneLabel="{Binding CST.TitleString}" DateContent="{Binding CST.ZoneTime, UpdateSourceTrigger=PropertyChanged}"></local:HideableTime>
+        <local:HideableTime Grid.Column="3" VerticalAlignment="Center" ZoneLabel="{Binding EST.TitleString}" DateContent="{Binding EST.ZoneTime, UpdateSourceTrigger=PropertyChanged}"></local:HideableTime>
+        <TextBlock TextAlignment="Center" Margin="0,20,0,20" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Text="{Binding CurrVSServ.ResultString, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+        <TextBlock TextAlignment="Center" Margin="20,40,20,40" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2">Updates from time.nist.gov every 5 seconds...</TextBlock>
+    </Grid>
+</Window>
